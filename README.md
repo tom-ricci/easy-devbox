@@ -7,6 +7,6 @@
 ### usage
 first, run:
 ```shell
-sudo bash <(curl -s https://raw.githubusercontent.com/tom-ricci/easy-devbox/master/script.sh)
+bash <(curl -s https://raw.githubusercontent.com/tom-ricci/easy-devbox/master/script.sh)
 ```
 then, just restart your shell. that's it!
