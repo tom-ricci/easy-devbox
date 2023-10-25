@@ -34,7 +34,6 @@ mkdir -p ~/.config/direnv/direnv;
 touch ~/.config/direnv/direnv.toml;
 echo "[whitelist]" >> ~/.config/direnv/direnv.toml;
 echo -e 'prefix = [ "$HOME/Documents" ]' >> ~/.config/direnv/direnv.toml;
-bash;
 curl -fsSL https://get.jetpack.io/devbox | bash;
 echo "Everything installed!";
 echo "Use 'devbox generate direnv' in an empty directory to generate a new project.";
