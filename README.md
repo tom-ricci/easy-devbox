@@ -1,12 +1,13 @@
 # easy-devbox
-`easy-devbox` is an installer for devbox and direnv, designed to run on bash on systems with apt-get. it installs and configures devbox and direnv such that you are able to simply run `devbox generate direnv` in any project and it will "Just Work".
 
-> [!CAUTION]
-> this script provides direnv access to evaluate all .envrc files in `~/Documents/**/` instantly and whenever they change. this is a security risk and you should only run the script if you're confident everything you store in there and may store in there in the future is safe. the script is very simple; if you need to disable this behavior you can edit the script yourself, or even just copy and paste it into your shell directly (there's actually only 6 necessary lines) and remove the lines that whitelist `~/Documents/**/`.
+`easy-devbox` installs devbox and direnv on linux and macos systems. it also takes care of hooking direnv into your shell, so you can start using it right away! it supports every shell that direnv supports.
 
 ### usage
-first, run:
+
+first, you'll need bash and curl. once you have those, run:
+
 ```shell
-bash <(curl -s https://raw.githubusercontent.com/tom-ricci/easy-devbox/master/script.sh)
+curl -fsSL https://easy-devbox.thomasricci.dev | bash
 ```
-then, just restart your shell. that's it!
+
+the script will prompt you to select a shell to hook into, and then install devbox and direnv. if you don't already have nix, it will be installed for you. otherwise, devbox will use your current nix installation.

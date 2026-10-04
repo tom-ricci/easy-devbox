@@ -1,0 +1,27 @@
+name: Publish to Pages
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bundle scripts for production
+        run: |
+          rm -rf dist
+          mkdir dist
+          mkdir dist/public
+          cp script.sh ./dist/public/index.html
+      - name: Deploy script
+        uses: cloudflare/pages-action@v1.5.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: easy-devbox
+          directory: ./dist/public
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
