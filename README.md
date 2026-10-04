@@ -7,7 +7,7 @@
 first, you'll need bash and curl. once you have those, run:
 
 ```shell
-curl -fsSL https://easy-devbox.thomasricci.dev | bash
+curl -fsSL https://easy-devbox.net | bash
 ```
 
 the script will prompt you to select a shell to hook into, and then install devbox and direnv. if you don't already have nix, it will be installed for you. otherwise, devbox will use your current nix installation.
