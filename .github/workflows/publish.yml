@@ -11,17 +11,16 @@ jobs:
       deployments: write
     steps:
       - uses: actions/checkout@v4
-      - name: Bundle scripts for production
+      - name: Bundle script for production
         run: |
           rm -rf dist
           mkdir dist
           mkdir dist/public
           cp script.sh ./dist/public/index.html
       - name: Deploy script
-        uses: cloudflare/pages-action@v1.5.0
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: easy-devbox
-          directory: ./dist/public
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy ./dist/public --project-name=easy-devbox
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
